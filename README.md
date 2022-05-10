@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # Nuxt 3 Minimal Starter
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
@@ -39,4 +41,10 @@ Locally preview production build:
 npm run preview
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+# Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+
+# safe-cert-viewer
+
+A Nuxt 3 app to show my personal certificates
+
+> > > > > > > 4ef17075bfd203dfe49f261b6b7c9df1f037e794
