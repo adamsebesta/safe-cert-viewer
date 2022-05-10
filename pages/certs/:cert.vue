@@ -27,27 +27,25 @@ const src: string = `https://adamdevstorage.blob.core.windows.net/certs/Microsof
   color: white;
   .header {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
     align-items: center;
     #nextBtn {
-      position: absolute;
-      right: 35%;
-    }
-    h5 {
-      font-weight: 600;
-    }
-    a {
-      padding: 1rem 2rem;
+      margin: 1rem 0 0 0;
+      padding: 0.75rem 1.5rem;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       color: white;
       text-decoration: none;
       font-size: 12px;
       font-weight: 600;
     }
+    h5 {
+      font-weight: 600;
+    }
+
     .header-text {
       margin: 0;
-
       padding: 1rem 2rem;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
@@ -57,6 +55,8 @@ const src: string = `https://adamdevstorage.blob.core.windows.net/certs/Microsof
     border: none;
     width: 70%;
     height: 60%;
+    max-height: 600px;
+    max-width: 900px;
   }
 }
 @media screen and (max-width: 500px) {
