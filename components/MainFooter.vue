@@ -1,7 +1,7 @@
 <template>
   <footer>
     <span>
-      ©2022 Adam Sebesta Development | Built with Nuxt 3 Hosted on Azure Static
+      ©2022 Adam Sebesta Development | Built with Nuxt 3 and Azure Static
       Apps</span
     >
   </footer>

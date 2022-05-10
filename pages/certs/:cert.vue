@@ -5,20 +5,37 @@
       <nuxt-link id="nextBtn" :to="'/certs/' + (certNumber == '0' ? '1' : '0')"
         >NEXT</nuxt-link
       >
+      <span>{{ cert.course }}</span>
     </div>
-    <iframe id="ifrm" type="application/pdf" :src="src"></iframe>
+    <iframe id="ifrm" type="application/pdf" :src="cert.src"></iframe>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Cert } from "types/cert";
+
 const route = useRoute();
 const certNumber: string | string[] = route.params.cert;
-const src: string = `https://adamdevstorage.blob.core.windows.net/certs/Microsoft_Certified_Professional_Certificate_${certNumber}.pdf#toolbar=0&fitW=1`;
+const certs: Cert[] = [
+  {
+    src: "https://drive.google.com/file/d/1j68YvYuzY0lk4py03W8vi9wnchv_QZo-/preview",
+    course: "AZ-900",
+  },
+
+  {
+    src: "https://drive.google.com/file/d/17kbxuHHwYjvIKIq6rHTaswCY8zzTCeZs/preview",
+    course: "AZ-204",
+  },
+];
+
+const cert = computed(() => {
+  return certNumber === "0" ? certs[0] : certs[1];
+});
 </script>
 
 <style lang="scss">
 .page {
-  height: calc(100% - 2rem);
+  height: calc(100% - 50px);
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -31,8 +48,10 @@ const src: string = `https://adamdevstorage.blob.core.windows.net/certs/Microsof
     justify-content: space-evenly;
     width: 100%;
     align-items: center;
+    max-width: 900px;
+    margin: 1rem 0 1.5rem;
     #nextBtn {
-      margin: 1rem 0 0 0;
+      margin: 0.5rem 0 1rem 0;
       padding: 0.75rem 1.5rem;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       color: white;
@@ -52,6 +71,8 @@ const src: string = `https://adamdevstorage.blob.core.windows.net/certs/Microsof
   }
   #ifrm {
     margin: 0 auto;
+    display: flex;
+    flex: 1 0;
     border: none;
     width: 70%;
     height: 60%;
@@ -61,11 +82,8 @@ const src: string = `https://adamdevstorage.blob.core.windows.net/certs/Microsof
 }
 @media screen and (max-width: 500px) {
   .page {
-    height: 80%;
     .header {
-      flex-direction: column;
       #nextBtn {
-        position: static;
         margin-top: 4rem;
       }
     }
