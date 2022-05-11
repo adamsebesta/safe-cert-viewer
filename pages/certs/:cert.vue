@@ -2,9 +2,7 @@
   <div class="page">
     <div class="header">
       <h5 class="header-text">SAFE CERT VIEWER 🤖</h5>
-      <nuxt-link id="nextBtn" :to="'/certs/' + (certNumber == '0' ? '1' : '0')"
-        >NEXT</nuxt-link
-      >
+      <nuxt-link id="nextBtn" :to="'/certs/' + getNextCert()">NEXT</nuxt-link>
       <span>{{ cert.course }}</span>
     </div>
     <iframe id="ifrm" type="application/pdf" :src="cert.src"></iframe>
@@ -28,9 +26,13 @@ const certs: Cert[] = [
   },
 ];
 
-const cert = computed(() => {
+const cert = computed((): Cert => {
   return certNumber === "0" ? certs[0] : certs[1];
 });
+
+const getNextCert = (): string => {
+  return certNumber === "0" ? "1" : "0";
+};
 </script>
 
 <style lang="scss">
